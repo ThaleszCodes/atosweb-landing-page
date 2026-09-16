@@ -2570,7 +2570,7 @@ main > section,
 
   .hero-container {
     /* Keep the copy below the bright orbital band of the mobile artwork. */
-    padding-top: clamp(250px, 55svh, 285px);
+    padding-top: clamp(290px, 58svh, 330px);
   }
 
   .hero-title {
@@ -2850,7 +2850,7 @@ main > section,
   }
 
   .hero-container {
-    padding-top: clamp(235px, 53svh, 270px);
+    padding-top: clamp(275px, 56svh, 315px);
   }
 
   .hero-title {
