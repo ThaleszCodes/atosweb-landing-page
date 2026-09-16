@@ -10,20 +10,35 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  
+  <script>try { if (sessionStorage.getItem('atosweb-intro-seen')) document.documentElement.classList.add('intro-seen'); } catch (error) {}</script>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="initial-loader" id="initialLoader" aria-hidden="true">
+    <div class="initial-loader-mark">
+      <svg class="initial-loader-orbit" viewBox="0 0 220 220" fill="none" aria-hidden="true">
+                    <ellipse class="initial-loader-orbit-glow" cx="110" cy="110" rx="91" ry="62" />
+                    <ellipse class="initial-loader-orbit-line" cx="110" cy="110" rx="91" ry="62" />
+                    <circle class="initial-loader-orbit-point" cx="189" cy="79" r="3" />
+      </svg>
+      <img src="assets/logo_hd.png" alt="" width="732" height="152" />
+    </div>
+    <p>IDEIAS EM ATOS</p>
+  </div>
+  <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
 
   <!-- Background Ambient Layer -->
   <div class="bg-stars-ambient" aria-hidden="true"></div>
+
+  <!-- Technical marker used to switch the header state without a scroll listener -->
+  <span class="header-scroll-sentinel" aria-hidden="true"></span>
 
   <!-- Header -->
   <header class="site-header" id="siteHeader">
     <div class="header-container">
       <!-- Logo -->
-      <a href="#" class="brand-logo" aria-label="ATOSWEB Home">
-        <img src="assets/logo_hd.png" alt="ATOSWEB" class="logo-image" />
+      <a href="#hero" class="brand-logo" aria-label="ATOSWEB Home">
+        <img src="assets/logo_hd.png" alt="ATOSWEB" class="logo-image" width="732" height="152" />
       </a>
 
       <!-- Desktop Navigation -->
@@ -43,7 +58,7 @@
         </a>
 
         <!-- Mobile Menu Toggle Button -->
-        <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+        <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobileDrawer">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
@@ -70,18 +85,24 @@
   </header>
 
   <!-- Main Content -->
-  <main>
+  <main id="main-content" tabindex="-1">
     <!-- HERO SECTION -->
     <section class="hero-section" id="hero">
       <!-- Visual Background: Cosmic Orbit, Eclipse & A Pyramid -->
       <div class="hero-bg-wrapper" aria-hidden="true">
         <!-- Background Image Layer Puro -->
-        <img 
-          src="assets/herobg.png" 
-          alt="" 
-          class="hero-bg-img"
-          loading="eager"
-        />
+        <picture>
+          <source media="(max-width: 768px)" srcset="assets/herobg-mobile.png" />
+          <img
+            src="assets/herobg.png"
+            alt=""
+            class="hero-bg-img"
+            loading="eager"
+            fetchpriority="high"
+            width="1672"
+            height="941"
+          />
+        </picture>
       </div>
 
       <!-- Hero Content Container -->
@@ -89,24 +110,24 @@
         <div class="hero-content">
           
           <!-- Eyebrow with Indicator Dash -->
-          <div class="hero-eyebrow-container">
+          <div class="hero-eyebrow-container" data-reveal data-reveal-delay="80">
             <span class="eyebrow-pill-indicator"></span>
             <p class="hero-eyebrow">LANDING PAGES SOB MEDIDA</p>
           </div>
 
           <!-- Headline -->
-          <h1 class="hero-title">
+          <h1 class="hero-title" data-reveal data-reveal-delay="150">
             <span class="title-line">Design bonito não basta.</span>
             <span class="title-line">Ele precisa gerar <span class="highlight-atos">ATOS.</span></span>
           </h1>
 
           <!-- Supporting Text -->
-          <p class="hero-subtitle">
+          <p class="hero-subtitle" data-reveal data-reveal-delay="220">
             Landing Pages personalizadas, estratégicas e feitas para transformar presença digital em ação.
           </p>
 
           <!-- CTAs -->
-          <div class="hero-actions">
+          <div class="hero-actions" data-reveal data-reveal-delay="290">
             <a href="#contato" class="btn-primary">
               <span>Começar meu projeto</span>
               <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -127,12 +148,15 @@
     <section class="section-positioning" id="posicionamento">
       <!-- Background Visual Puro -->
       <div class="positioning-bg-wrapper" aria-hidden="true">
-        <img 
-          src="assets/section2bg.png" 
-          alt="" 
-          class="positioning-bg-img"
-          loading="lazy"
-        />
+        <picture>
+          <source media="(max-width: 768px)" srcset="assets/section2bg-mobile.png" />
+          <img
+            src="assets/section2bg.png"
+            alt=""
+            class="positioning-bg-img"
+            loading="lazy"
+          />
+        </picture>
       </div>
 
       <div class="positioning-container">
@@ -279,7 +303,7 @@
                 </div>
                 <h3 class="project-name">FreelaNew</h3>
                 <p class="project-desc">Marketplace moderno para freelancers e produtores.</p>
-                <a href="https://freelanew.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link">
+                <a href="https://freelanew.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Acessar o projeto FreelaNew em uma nova aba">
                   <span>Ver projeto</span>
                   <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path d="M3.33337 8H12.6667M12.6667 8L8.66671 4M12.6667 8L8.66671 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -311,7 +335,7 @@
                 </div>
                 <h3 class="project-name">Money Clips 15k</h3>
                 <p class="project-desc">Portal de conteúdo e mídia digital.</p>
-                <a href="https://moneyclips15k.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link">
+                <a href="https://moneyclips15k.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Acessar o projeto Money Clips 15k em uma nova aba">
                   <span>Ver projeto</span>
                   <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path d="M3.33337 8H12.6667M12.6667 8L8.66671 4M12.6667 8L8.66671 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -345,7 +369,7 @@
                 </div>
                 <h3 class="project-name">Silva Advocacia</h3>
                 <p class="project-desc">Design que transmite autoridade e confiança para escritório jurídico.</p>
-                <a href="https://silvaadv-project.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+                <a href="https://silvaadv-project.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Acessar o projeto Silva Advocacia em uma nova aba">
                   <span>Ver projeto</span>
                   <svg class="arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path d="M3.33337 8H12.6667M12.6667 8L8.66671 4M12.6667 8L8.66671 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -357,7 +381,413 @@
         </div>
       </div>
     </section>
+
+    <!-- SECTION 04: OFERTA -->
+    <section class="section-offer" id="oferta">
+      <div class="offer-bg-wrapper" aria-hidden="true">
+        <img src="assets/section4bg.png" alt="" class="offer-bg-img" loading="lazy" />
+      </div>
+
+      <div class="offer-container">
+        <div class="offer-content">
+          <div class="offer-eyebrow">
+            <span>04</span>
+            <i aria-hidden="true"></i>
+            <p>OFERTA</p>
+          </div>
+
+          <h2 class="offer-title">
+            <span>Feito para</span>
+            <span>o <strong>seu negócio.</strong></span>
+          </h2>
+
+          <p class="offer-description">
+            Cada landing page é criada de acordo com o seu segmento, objetivos e identidade, unindo design, estratégia e performance para gerar resultados reais no seu negócio.
+          </p>
+
+          <ul class="offer-features" aria-label="Diferenciais da oferta">
+            <li class="offer-feature">
+              <span class="offer-feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m13.7 4.3 6 6L10 20l-6-6 9.7-9.7Z" />
+                  <path d="m15.4 2.6 6 6" />
+                  <path d="m4 20 3.8-1.2" />
+                </svg>
+              </span>
+              <span>
+                <strong>Design sob medida</strong>
+                <small>Visual único, alinhado ao seu público e ao seu mercado.</small>
+              </span>
+            </li>
+            <li class="offer-feature">
+              <span class="offer-feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 20V10" />
+                  <path d="M10 20V4" />
+                  <path d="M16 20v-7" />
+                  <path d="M22 20H2" />
+                </svg>
+              </span>
+              <span>
+                <strong>Estratégia de conversão</strong>
+                <small>Páginas pensadas para atrair, engajar e gerar resultados.</small>
+              </span>
+            </li>
+            <li class="offer-feature">
+              <span class="offer-feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m12 3 9 5-9 5-9-5 9-5Z" />
+                  <path d="m3 12 9 5 9-5" />
+                  <path d="m3 16 9 5 9-5" />
+                </svg>
+              </span>
+              <span>
+                <strong>Estrutura alinhada à sua marca</strong>
+                <small>Conteúdo, estilo e experiência consistentes com a sua identidade.</small>
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="offer-panel">
+          <div class="offer-panel-header">
+            <h3>Cada projeto se adapta ao seu contexto</h3>
+            <p>Soluções reais<br />para negócios reais</p>
+          </div>
+
+          <div class="offer-audiences">
+            <article class="audience-card">
+              <svg class="audience-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m4 15 12-10 12 10" />
+                <path d="M8 13v13h16V13" />
+                <path d="M16 5V2" />
+                <path d="M13 2h6" />
+                <path d="M13 26v-7h6v7" />
+              </svg>
+              <h4>Igreja</h4>
+              <p>Conecte, informe e mobilize sua comunidade.</p>
+            </article>
+            <article class="audience-card">
+              <svg class="audience-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m3 12 13-6 13 6-13 6-13-6Z" />
+                <path d="M8 15v6c3.8 3 12.2 3 16 0v-6" />
+                <path d="M29 12v8" />
+              </svg>
+              <h4>Escola</h4>
+              <p>Mais matrículas com uma presença digital forte.</p>
+            </article>
+            <article class="audience-card">
+              <svg class="audience-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 13h22v14H5z" />
+                <path d="M3 13 6 6h20l3 7H3Z" />
+                <path d="M9 13V9m5 4V9m5 4V9" />
+                <path d="M11 27v-7h10v7" />
+              </svg>
+              <h4>Negócio local</h4>
+              <p>Atraia mais clientes e fortaleça sua marca na região.</p>
+            </article>
+          </div>
+
+          <div class="offer-principles">
+            <article class="principle-card">
+              <h4>Identidade</h4>
+              <p>Cores, estilo e tom de voz adaptados ao seu negócio.</p>
+              <div class="identity-visual" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+            </article>
+            <article class="principle-card">
+              <h4>Objetivo</h4>
+              <p>Estratégia focada no seu principal resultado.</p>
+              <div class="objective-visual" aria-hidden="true">
+                <svg viewBox="0 0 58 58" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="29" cy="29" r="20" />
+                  <circle cx="29" cy="29" r="12" />
+                  <circle cx="29" cy="29" r="3" fill="currentColor" />
+                  <path d="m32 26 17-17" />
+                  <path d="M42 9h7v7" />
+                </svg>
+                <span><i></i><i></i><i></i></span>
+              </div>
+            </article>
+            <article class="principle-card">
+              <h4>Estrutura</h4>
+              <p>Seções e conteúdos pensados para a sua realidade.</p>
+              <div class="structure-visual" aria-hidden="true">
+                <b></b><span></span><span></span><i></i><i></i>
+              </div>
+            </article>
+          </div>
+
+          <p class="offer-panel-footer">A mesma expertise. Soluções diferentes. Sempre com o mesmo objetivo: <strong>o crescimento do seu negócio.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 05: COMO FUNCIONA -->
+    <section class="section-process" id="como-funciona">
+      <div class="process-bg-wrapper" aria-hidden="true">
+        <img src="assets/section5bg.png" alt="" class="process-bg-img" loading="lazy" />
+      </div>
+
+      <div class="process-container">
+        <header class="process-header">
+          <div class="process-eyebrow">
+            <span>05</span><i aria-hidden="true"></i><p>COMO FUNCIONA</p>
+          </div>
+          <h2 class="process-title">
+            <span>Do planejamento</span>
+            <span>ao <strong>seu resultado.</strong></span>
+          </h2>
+          <p class="process-description">Do primeiro contato à entrega, um processo claro, direto e sem complicação.</p>
+          <div class="process-badges" aria-label="Condições da oferta">
+            <span class="process-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="6" rx="1.5" /><rect x="3" y="14" width="18" height="6" rx="1.5" /><path d="M7 7h.01M7 17h.01M11 7h6M11 17h6" />
+              </svg>
+              Hospedagem grátis
+            </span>
+            <span class="process-badge">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 11.1 12.9 3.6A2 2 0 0 0 11.5 3H5a2 2 0 0 0-2 2v6.5a2 2 0 0 0 .6 1.4l7.5 7.5a2 2 0 0 0 2.8 0l6.5-6.5a2 2 0 0 0 0-2.8ZM7.5 9A1.5 1.5 0 1 1 9 7.5 1.5 1.5 0 0 1 7.5 9Z" /></svg>
+              A partir de R$287
+            </span>
+          </div>
+        </header>
+
+        <div class="process-journey">
+          <svg class="process-line" viewBox="0 0 1000 86" preserveAspectRatio="none" fill="none" aria-hidden="true">
+            <path d="M0 42C73 42 110 28 185 42s111 16 185 7c75-9 111-9 185 0s111 9 185 0 111-25 185-7 111 0 185 0" stroke="rgba(117, 56, 235, .28)" stroke-width="8" stroke-linecap="round" />
+            <path d="M0 42C73 42 110 28 185 42s111 16 185 7c75-9 111-9 185 0s111 9 185 0 111-25 185-7 111 0 185 0" stroke="url(#processLineGlow)" stroke-width="2" stroke-linecap="round" />
+            <defs><linearGradient id="processLineGlow" x1="0" y1="0" x2="1000" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#7c3aed" /><stop offset=".5" stop-color="#ad65ff" /><stop offset="1" stop-color="#6d28d9" /></linearGradient></defs>
+          </svg>
+
+          <ol class="process-steps">
+            <li class="process-step">
+              <span class="process-number">01</span>
+              <article class="process-card">
+                <span class="process-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h11l7 7v19H8z" /><path d="M19 3v8h7M12 16h10M12 21h10M12 26h6" /></svg></span>
+                <h3>Briefing</h3><p>Entendemos seu negócio e objetivo.</p>
+              </article>
+            </li>
+            <li class="process-step">
+              <span class="process-number">02</span>
+              <article class="process-card">
+                <span class="process-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h11l6 6v20H9z" /><path d="M20 3v7h6M18 15c-.5-1-1.4-1.5-2.8-1.5-1.5 0-2.6.8-2.6 2 0 3.2 5.8 1.6 5.8 4.8 0 1.3-1.1 2.2-2.8 2.2-1.5 0-2.6-.6-3.2-1.8M15.5 11.5v13" /></svg></span>
+                <h3>Orçamento</h3><p>Definimos escopo, valor e direção.</p>
+              </article>
+            </li>
+            <li class="process-step">
+              <span class="process-number">03</span>
+              <article class="process-card">
+                <span class="process-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 26 3.4-8.6L22.8 4l5.2 5.2-13.4 13.4L6 26Z" /><path d="m19 8 5 5M5 27h9" /></svg></span>
+                <h3>Design</h3><p>Criamos a estrutura visual da página.</p>
+              </article>
+            </li>
+            <li class="process-step">
+              <span class="process-number">04</span>
+              <article class="process-card">
+                <span class="process-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="5" /><path d="M16 3v4m0 18v4M3 16h4m18 0h4M6.8 6.8l2.8 2.8m12.8 12.8 2.8 2.8m0-18.4-2.8 2.8M9.6 22.4l-2.8 2.8" /></svg></span>
+                <h3>Ajustes</h3><p>Refinamos tudo com sua aprovação.</p>
+              </article>
+            </li>
+            <li class="process-step">
+              <span class="process-number">05</span>
+              <article class="process-card">
+                <span class="process-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 4 10 10-7 2-4 7-5-5-7 2 4-7-5-5 7-4 2-7 5 7Z" /><path d="m14 22-4 6M6 26l6-1" /></svg></span>
+                <h3>Publicação</h3><p>Colocamos o projeto no ar.</p>
+              </article>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 06: INVESTIMENTO -->
+    <section class="section-investment" id="investimento">
+      <div class="investment-bg-wrapper" aria-hidden="true">
+        <img src="assets/section6bg.png" alt="" class="investment-bg-img" loading="lazy" />
+      </div>
+
+      <div class="investment-container">
+        <header class="investment-header">
+          <div class="investment-eyebrow"><span>06</span><i aria-hidden="true"></i><p>INVESTIMENTO</p></div>
+          <h2 class="investment-title"><span>Investimento simples.</span><span><strong>Resultado real.</strong></span></h2>
+          <p>Um site profissional, sem complicação e com tudo que você precisa para colocar o seu negócio no ar.</p>
+        </header>
+
+        <div class="price-card">
+          <p class="price-overline">A PARTIR DE</p>
+          <p class="price-value"><span>R$</span>287</p>
+          <p class="price-payment">PAGAMENTO ÚNICO</p>
+
+          <div class="price-divider" aria-hidden="true"></div>
+
+          <div class="hosting-block">
+            <span class="hosting-icon" aria-hidden="true">
+              <svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="22" height="8" rx="2" /><rect x="4" y="18" width="22" height="8" rx="2" /><path d="M8 8h.01M8 22h.01M13 8h9M13 22h9" /></svg>
+            </span>
+            <p>Hospedagem <strong>grátis</strong></p>
+          </div>
+
+          <ul class="price-benefits" aria-label="Benefícios inclusos">
+            <li>
+              <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 23 3-7.8L20.7 2.5l4.8 4.8L12.8 20 5 23Z" /><path d="m17.5 5.7 4.8 4.8M4 24h9" /></svg>
+              <span>Design<br />sob medida</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 3 9 9-6.3 1.7-3.5 6.3-4.6-4.6-6.3 1.7 3.5-6.3L3 6l6.3-2.5L11 0l5 3Z" /><path d="m12 20-3 5M5 23l5-1" /></svg>
+              <span>Publicação<br />do seu site</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 15v-2a9 9 0 0 1 18 0v2" /><path d="M4 14h4v7H4zM20 14h4v7h-4zM20 22c0 2-2.5 3-5 3h-2" /></svg>
+              <span>Suporte<br />inicial</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="investment-action">
+          <a href="#contato" class="investment-cta">Quero meu site agora <span aria-hidden="true">→</span></a>
+          <p>Rápido. Seguro. Sem complicação.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 07: FAQ -->
+    <section class="section-faq" id="faq">
+      <div class="faq-bg-wrapper" aria-hidden="true">
+        <img src="assets/section7bg.png" alt="" class="faq-bg-img" loading="lazy" />
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-intro">
+          <div class="faq-eyebrow"><span>07</span><i aria-hidden="true"></i><p>FAQ</p></div>
+          <h2 class="faq-title"><span>Ainda com</span><span><strong>dúvidas?</strong></span></h2>
+          <p class="faq-description">Tudo o que você precisa saber antes de tirar o seu projeto do papel.</p>
+
+          <aside class="faq-assurance">
+            <span class="faq-shield" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3 27 7v8c0 7.1-4.6 11.9-11 14-6.4-2.1-11-6.9-11-14V7l11-4Z" /><path d="m10.5 16 3.5 3.5 7.5-8" /></svg>
+            </span>
+            <span><strong>Compromisso com a sua ideia</strong><small>Respostas claras. Mais segurança para o seu projeto.</small></span>
+          </aside>
+        </div>
+
+        <div class="faq-list" data-accordion>
+          <article class="faq-item is-open">
+            <button class="faq-trigger" type="button" aria-expanded="true" aria-controls="faq-answer-1" id="faq-question-1">
+              <span class="faq-number">01</span><span class="faq-question">Quanto custa uma landing page?</span>
+              <span class="faq-chevron" aria-hidden="true"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 11 5-5 5 5" /></svg></span>
+            </button>
+            <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1"><div><p>O valor inicial é a partir de R$287. O preço final pode variar conforme a complexidade do projeto e as necessidades da sua marca.</p></div></div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-answer-2" id="faq-question-2">
+              <span class="faq-number">02</span><span class="faq-question">A hospedagem está inclusa?</span>
+              <span class="faq-chevron" aria-hidden="true"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 11 5-5 5 5" /></svg></span>
+            </button>
+            <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2"><div><p>Sim. A hospedagem inicial está inclusa para que seu site entre no ar sem uma etapa extra para você resolver.</p></div></div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-answer-3" id="faq-question-3">
+              <span class="faq-number">03</span><span class="faq-question">Em quanto tempo o site fica pronto?</span>
+              <span class="faq-chevron" aria-hidden="true"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 11 5-5 5 5" /></svg></span>
+            </button>
+            <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3"><div><p>O prazo é definido no briefing. Trabalhamos com um processo objetivo para publicar seu site assim que o conteúdo e o visual forem aprovados.</p></div></div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-answer-4" id="faq-question-4">
+              <span class="faq-number">04</span><span class="faq-question">Posso pedir ajustes?</span>
+              <span class="faq-chevron" aria-hidden="true"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 11 5-5 5 5" /></svg></span>
+            </button>
+            <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-question-4"><div><p>Sim. Você acompanha o projeto e conta com uma etapa de ajustes para garantir que o resultado represente bem a sua marca.</p></div></div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-answer-5" id="faq-question-5">
+              <span class="faq-number">05</span><span class="faq-question">Vocês criam para qualquer nicho?</span>
+              <span class="faq-chevron" aria-hidden="true"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 11 5-5 5 5" /></svg></span>
+            </button>
+            <div class="faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-question-5"><div><p>Sim. Cada projeto é construído sob medida para o seu segmento, objetivo e contexto de negócio.</p></div></div>
+          </article>
+        </div>
+      </div>
+
+      <p class="faq-footer">Ideias reais.<br />Resultados reais.<i aria-hidden="true"></i></p>
+    </section>
+
+    <!-- SECTION 08: CTA FINAL -->
+    <section class="section-final-cta" id="contato">
+      <div class="final-cta-bg-wrapper" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 768px)" srcset="assets/section8bg-mobile.png" />
+          <img src="assets/section8bg.png" alt="" class="final-cta-bg-img" loading="lazy" />
+        </picture>
+      </div>
+
+      <div class="final-cta-container">
+        <div class="final-cta-content">
+          <div class="final-cta-eyebrow"><span>08</span><i aria-hidden="true"></i><p>CTA FINAL</p></div>
+          <h2 class="final-cta-title"><span>Seu projeto</span><span>começa <strong>agora.</strong></span></h2>
+          <p class="final-cta-description">Transforme sua ideia em um site de verdade. Receba um orçamento personalizado, sem compromisso, e dê o primeiro passo com quem entende do assunto.</p>
+
+          <div class="final-cta-badges">
+            <span><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 11.1 12.9 3.6A2 2 0 0 0 11.5 3H5a2 2 0 0 0-2 2v6.5a2 2 0 0 0 .6 1.4l7.5 7.5a2 2 0 0 0 2.8 0l6.5-6.5a2 2 0 0 0 0-2.8ZM7.5 9A1.5 1.5 0 1 1 9 7.5 1.5 1.5 0 0 1 7.5 9Z" /></svg>A partir de R$287</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18h10a4 4 0 1 0-.6-7.95A6 6 0 0 0 5.35 12.7 3 3 0 0 0 7 18Z" /></svg>Hospedagem grátis</span>
+          </div>
+
+          <ul class="final-micro-benefits" aria-label="Benefícios de atendimento">
+            <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 2-9 13h7l-2 11 9-14h-7l2-10Z" /></svg><span>Resposta rápida</span></li>
+            <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3 24 7v7c0 6.2-4 10.3-10 12-6-1.7-10-5.8-10-12V7l10-4Z" /><path d="m9.5 14 3 3 6-6" /></svg><span>Atendimento direto</span></li>
+            <li><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="8" r="3" /><circle cx="5" cy="11" r="2" /><circle cx="23" cy="11" r="2" /><path d="M8 24v-2a6 6 0 0 1 12 0v2M1.5 23v-1a5 5 0 0 1 4.5-5M26.5 23v-1a5 5 0 0 0-4.5-5" /></svg><span>Projeto sob medida</span></li>
+          </ul>
+
+          <p class="final-signature"><strong>ATOSWEB</strong><span>IDEIAS EM ATOS</span></p>
+        </div>
+
+        <aside class="quote-card">
+          <h3>Peça seu orçamento</h3>
+          <p class="quote-card-description">Receba uma direção clara para o seu projeto, com um plano sob medida para o seu momento.</p>
+          <ol class="quote-steps">
+            <li><span class="quote-step-icon" aria-hidden="true"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l6 6v16H7z" /><path d="M17 3v7h6M11 15h8M11 20h8" /></svg></span><span><strong>Briefing</strong><small>Você nos conta sobre sua ideia e objetivos.</small></span></li>
+            <li><span class="quote-step-icon" aria-hidden="true"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="18" height="20" rx="2" /><path d="M9 9h.01M14 9h.01M19 9h.01M9 14h.01M14 14h.01M19 14h.01M9 19h10" /></svg></span><span><strong>Orçamento</strong><small>Recebe uma proposta personalizada.</small></span></li>
+            <li><span class="quote-step-icon" aria-hidden="true"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 9 9-6.3 1.7-3.5 6.3-4.6-4.6-6.3 1.7 3.5-6.3L3 6l6.3-2.5L11 0l5 3Z" /><path d="m12 20-3 5M5 23l5-1" /></svg></span><span><strong>Publicação</strong><small>Com tudo aprovado, seu projeto vai para o ar.</small></span></li>
+          </ol>
+          <a href="#contato" class="quote-card-cta">Quero meu orçamento <span aria-hidden="true">→</span></a>
+          <p class="quote-card-note">Sem compromisso. Seu projeto, no seu tempo.</p>
+        </aside>
+      </div>
+    </section>
   </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="#hero" class="footer-logo" aria-label="ATOSWEB — voltar ao início">
+          <img src="assets/logo_hd.png" alt="ATOSWEB" />
+        </a>
+        <p>Landing pages sob medida para transformar ideias em <strong>ATOS.</strong></p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Navegação do rodapé">
+        <p>NAVEGAÇÃO</p>
+        <a href="#projetos">Projetos</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#investimento">Investimento</a>
+        <a href="#faq">Dúvidas frequentes</a>
+      </nav>
+
+      <div class="footer-contact">
+        <p>PRONTO PARA COMEÇAR?</p>
+        <strong>Vamos colocar sua ideia no ar.</strong>
+        <a href="#contato">Pedir orçamento <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ATOSWEB. Todos os direitos reservados.</p>
+      <p>IDEIAS EM ATOS</p>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
