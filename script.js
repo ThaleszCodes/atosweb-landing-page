@@ -285,4 +285,40 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Concepts gallery: modal presentation with keyboard-safe close behavior.
+  const conceptsTrigger = document.getElementById('conceptsTrigger');
+  const conceptsModal = document.getElementById('conceptsModal');
+  const conceptsClose = document.getElementById('conceptsModalClose');
+
+  if (conceptsTrigger && conceptsModal && conceptsClose) {
+    let conceptsReturnFocus = null;
+    let conceptsCloseTimer = 0;
+
+    const closeConcepts = () => {
+      window.clearTimeout(conceptsCloseTimer);
+      conceptsModal.classList.add('is-closing');
+      document.body.classList.remove('concepts-open');
+      conceptsCloseTimer = window.setTimeout(() => {
+        conceptsModal.hidden = true;
+        conceptsModal.classList.remove('is-closing');
+        conceptsReturnFocus?.focus();
+      }, prefersReducedMotion ? 0 : 220);
+    };
+
+    conceptsTrigger.addEventListener('click', () => {
+      conceptsReturnFocus = document.activeElement;
+      conceptsModal.hidden = false;
+      document.body.classList.add('concepts-open');
+      requestAnimationFrame(() => conceptsClose.focus());
+    });
+
+    conceptsClose.addEventListener('click', closeConcepts);
+    conceptsModal.addEventListener('click', event => {
+      if (event.target === conceptsModal) closeConcepts();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !conceptsModal.hidden) closeConcepts();
+    });
+  }
 });

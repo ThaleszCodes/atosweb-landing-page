@@ -385,6 +385,16 @@
               </div>
             </article>
           </div>
+
+          <button class="concepts-trigger" id="conceptsTrigger" type="button" aria-haspopup="dialog" aria-controls="conceptsModal">
+            <span>
+              <small>EXPLORAÇÃO ATOSWEB</small>
+              <strong>Ver concepts especiais</strong>
+            </span>
+            <svg class="arrow-icon" width="19" height="19" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3.33337 8H12.6667M12.6667 8L8.66671 4M12.6667 8L8.66671 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </div>
       </div>
     </section>
@@ -764,6 +774,25 @@
       </div>
     </section>
   </main>
+
+  <div class="concepts-modal" id="conceptsModal" role="dialog" aria-modal="true" aria-labelledby="conceptsModalTitle" hidden>
+    <div class="concepts-modal-panel">
+      <div class="concepts-modal-header">
+        <div>
+          <p class="concepts-modal-eyebrow">ATOSWEB / CONCEPTS</p>
+          <h2 id="conceptsModalTitle">Hero concepts especiais</h2>
+          <p>Explorações visuais criadas para transformar a primeira dobra em presença.</p>
+        </div>
+        <button class="concepts-modal-close" id="conceptsModalClose" type="button" aria-label="Fechar galeria de concepts">×</button>
+      </div>
+      <div class="concepts-gallery">
+        <figure class="concept-card"><img src="assets/concepts/IMG-20260912-WA0144.jpg" alt="Hero concept 01" loading="lazy" /><figcaption><span>01</span><strong>Nativa Ambientes</strong></figcaption></figure>
+        <figure class="concept-card"><img src="assets/concepts/IMG-20260912-WA0140.jpg" alt="Hero concept 02" loading="lazy" /><figcaption><span>02</span><strong>Concept visual</strong></figcaption></figure>
+        <figure class="concept-card"><img src="assets/concepts/211174978093024.jpg" alt="Hero concept 03" loading="lazy" /><figcaption><span>03</span><strong>Direção digital</strong></figcaption></figure>
+        <figure class="concept-card"><img src="assets/concepts/concept(example).png" alt="Hero concept 04" loading="lazy" /><figcaption><span>04</span><strong>Exploração de interface</strong></figcaption></figure>
+      </div>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer class="site-footer">
