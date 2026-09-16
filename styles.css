@@ -2008,13 +2008,13 @@ main > section,
 .process-badge svg { width: 25px; height: 25px; color: var(--purple-neon); }
 
 .process-journey { position: relative; margin-top: 48px; }
-.process-line { position: absolute; top: 0; left: 10%; width: 80%; height: 78px; overflow: visible; filter: drop-shadow(0 0 5px rgba(132, 58, 245, 0.45)); }
+.process-line { position: absolute; top: 3px; left: 10%; width: 80%; height: 86px; overflow: visible; filter: drop-shadow(0 0 5px rgba(132, 58, 245, 0.45)); }
 .process-line path { stroke-dasharray: 1200; stroke-dashoffset: 1200; transition: stroke-dashoffset 1200ms var(--motion-ease-premium); }
 .process-journey.is-drawn .process-line path { stroke-dashoffset: 0; }
 .process-steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(16px, 2vw, 32px); list-style: none; }
-.process-step { position: relative; padding-top: 42px; }
+.process-step { position: relative; display: flex; flex-direction: column; padding-top: 42px; }
 .process-number { position: absolute; z-index: 2; top: 12px; left: 50%; display: grid; width: 66px; aspect-ratio: 1; place-items: center; transform: translateX(-50%); border: 1px solid #8d4dff; border-radius: 50%; color: #f7f2ff; background: radial-gradient(circle at 36% 28%, #2a1760, #0c0820 67%); box-shadow: 0 0 0 3px rgba(111, 45, 229, .12), 0 0 18px rgba(126, 54, 251, .86), inset 0 0 12px rgba(168, 85, 247, .4); font-size: 1.05rem; font-weight: 700; transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth); }
-.process-card { min-height: 242px; padding: 58px 21px 26px; border: 1px solid rgba(135, 78, 227, 0.47); border-radius: 20px; background: linear-gradient(155deg, rgba(17, 12, 33, .86), rgba(7, 6, 16, .74)); box-shadow: inset 0 1px rgba(255,255,255,.05), 0 13px 32px rgba(0,0,0,.22); text-align: center; transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth); }
+.process-card { flex: 1; min-height: 242px; padding: 58px 21px 26px; border: 1px solid rgba(135, 78, 227, 0.47); border-radius: 20px; background: linear-gradient(155deg, rgba(17, 12, 33, .86), rgba(7, 6, 16, .74)); box-shadow: inset 0 1px rgba(255,255,255,.05), 0 13px 32px rgba(0,0,0,.22); text-align: center; transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth); }
 .process-icon { display: grid; width: 78px; height: 78px; margin: 0 auto 17px; place-items: center; border: 1px solid rgba(198, 112, 255, .82); border-radius: 16px; color: #bd5eff; background: rgba(19, 9, 39, .7); box-shadow: inset 0 0 16px rgba(155, 63, 245, .12), 0 0 14px rgba(128, 50, 243, .15); }
 .process-icon svg { width: 42px; height: 42px; }
 .process-card h3 { margin-bottom: 11px; color: #f7f4ff; font-size: clamp(1.05rem, 1.5vw, 1.3rem); font-weight: 700; letter-spacing: -0.025em; }
