@@ -2569,7 +2569,8 @@ main > section,
   }
 
   .hero-container {
-    padding-top: clamp(190px, 51svh, 225px);
+    /* Keep the copy below the bright orbital band of the mobile artwork. */
+    padding-top: clamp(250px, 55svh, 285px);
   }
 
   .hero-title {
@@ -2849,7 +2850,7 @@ main > section,
   }
 
   .hero-container {
-    padding-top: clamp(184px, 49svh, 205px);
+    padding-top: clamp(235px, 53svh, 270px);
   }
 
   .hero-title {
@@ -2954,11 +2955,11 @@ main > section,
   }
 
   .initial-loader-mark {
-    width: 178px;
+    width: 168px;
   }
 
   .initial-loader-mark > img {
-    width: 112px;
+    width: 102px;
   }
 
   .initial-loader-copy > p {
