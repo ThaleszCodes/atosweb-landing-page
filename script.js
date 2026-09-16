@@ -30,9 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // The intro still works when storage is unavailable.
       }
 
-      // Hold the completed mark long enough to establish the brand, then blend into the Hero.
-      const exitDelay = prefersReducedMotion ? 90 : 2700;
-      const exitDuration = prefersReducedMotion ? 220 : 280;
+      // A concise brand formation that resolves into the Hero in roughly two seconds.
+      const exitDelay = prefersReducedMotion ? 90 : 1700;
+      const exitDuration = prefersReducedMotion ? 220 : 300;
 
       window.setTimeout(() => {
         initialLoader.classList.add('is-leaving');
