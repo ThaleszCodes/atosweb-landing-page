@@ -17,9 +17,13 @@
   <div class="initial-loader" id="initialLoader" aria-hidden="true">
     <div class="initial-loader-mark">
       <svg class="initial-loader-orbit" viewBox="0 0 220 220" fill="none" aria-hidden="true">
-                    <ellipse class="initial-loader-orbit-glow" cx="110" cy="110" rx="91" ry="62" />
-                    <ellipse class="initial-loader-orbit-line" cx="110" cy="110" rx="91" ry="62" />
-                    <circle class="initial-loader-orbit-point" cx="189" cy="79" r="3" />
+        <ellipse class="initial-loader-orbit-glow" cx="110" cy="110" rx="91" ry="62" />
+        <ellipse class="initial-loader-orbit-line" cx="110" cy="110" rx="91" ry="62" />
+        <g class="initial-loader-orbit-point">
+          <circle r="3">
+            <animateMotion class="initial-loader-orbit-motion" begin=".57s" dur="3.2s" repeatCount="indefinite" path="M 201 110 A 91 62 0 1 1 19 110 A 91 62 0 1 1 201 110" />
+          </circle>
+        </g>
       </svg>
       <img src="assets/logo_hd.png" alt="" width="732" height="152" />
     </div>

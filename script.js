@@ -10,6 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const initialLoader = document.getElementById('initialLoader');
 
   if (initialLoader) {
+    if (prefersReducedMotion) {
+      initialLoader.querySelector('.initial-loader-orbit-motion')?.remove();
+      const orbitPoint = initialLoader.querySelector('.initial-loader-orbit-point circle');
+      orbitPoint?.setAttribute('cx', '201');
+      orbitPoint?.setAttribute('cy', '110');
+    }
+
     const hasSeenIntro = document.documentElement.classList.contains('intro-seen');
 
     if (hasSeenIntro) {
