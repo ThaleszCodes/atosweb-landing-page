@@ -71,4 +71,30 @@ document.addEventListener('DOMContentLoaded', () => {
       primaryBtn.style.setProperty('--mouse-y', `${y}px`);
     });
   }
+
+  // 5. Portfolio Filter Pills
+  const filterPills = document.querySelectorAll('.filter-pill');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      filterPills.forEach(p => {
+        p.classList.remove('active');
+        p.setAttribute('aria-selected', 'false');
+      });
+      pill.classList.add('active');
+      pill.setAttribute('aria-selected', 'true');
+
+      const filterValue = pill.getAttribute('data-filter');
+
+      projectCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filterValue === 'all' || category === filterValue) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
 });
