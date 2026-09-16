@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // The intro still works when storage is unavailable.
       }
 
-      const exitDelay = prefersReducedMotion ? 90 : 850;
+      // Hold the completed mark long enough to establish the brand, then blend into the Hero.
+      const exitDelay = prefersReducedMotion ? 90 : 2700;
       const exitDuration = prefersReducedMotion ? 220 : 280;
 
       window.setTimeout(() => {
